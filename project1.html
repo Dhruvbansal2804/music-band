@@ -1,0 +1,228 @@
+<html>
+
+<head>
+    <style>
+        nav ul li {
+            list-style-type: none;
+            display: inline;
+            color: white;
+            align-items: center;
+            margin: 10px;
+            text-decoration: none;
+            text-underline-offset: -100px;
+        }
+
+        .img {
+            width: 100%;
+            margin-left: 0px;
+        }
+
+        .a {
+            background-color: white;
+        }
+
+        .flex {
+            width: 400px;
+            height: 300px;
+            display: flex;
+        }
+
+        .flex-item {
+            margin-left: 170px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .text {
+            font-size: medium;
+            text-align: center;
+        }
+
+        h1 {
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: medium;
+            font-style: italic;
+            font-weight: lighter;
+        }
+
+        .b {
+            background-color: black;
+            margin-top: 50px;
+        }
+
+        h3 {
+            font-weight: bold;
+            color: white;
+            font-size: xx-large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        h4 {
+            font-size: medium;
+            font-style: italic;
+            font-weight: lighter;
+            color: azure;
+        }
+
+        .c {
+            color: white;
+            margin-left: 10px;
+        }
+
+        .d {
+            background-color: red;
+            color: white;
+        }
+
+        .flex2 {
+            width: 400px;
+            height: 600px;
+            display: flex;
+            flex-direction: row;
+            margin-right: 20px;
+        }
+
+        .flex-container2 {
+            margin-left: 55px;
+            margin-top: 30px;
+            text-align: center;
+            background-color: white;
+            height: 500px;
+
+        }
+
+        .e {
+            word-wrap: normal;
+            width: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function msg(){
+            prompt("Name:");
+            prompt("Amount:");
+            alert("Payed Sucessfully!");
+        }
+    </script>
+    <nav style="background-color: black; height:30px;">
+        <ul>
+            <li><a href="https://www.w3schools.com/w3css/tryw3css_templates_band.htm#" style="color: white;">HOME</a>
+            </li>
+            <li><a href="https://www.w3schools.com/w3css/tryw3css_templates_band.htm#band"
+                    style="color: white;">BAND</a></li>
+            <li><a href="https://www.w3schools.com/w3css/tryw3css_templates_band.htm#tour"
+                    style="color: white;">TOUR</a></li>
+            <li><a href="https://www.w3schools.com/w3css/tryw3css_templates_band.htm#contact"
+                    style="color: white;">CONTACT</a></li>
+            <li><a href="https://www.w3schools.com/w3css/tryw3css_templates_band.htm#" style="color: white;">MORE
+                </a></li>
+        </ul>
+    </nav>
+
+    <img class="img" src="https://www.w3schools.com/w3images/la.jpg">
+    <div class="a">
+        <center>
+            <h1>THE BAND</h1>
+        </center>
+        <center>
+            <h2>We love music</h2>
+        </center>
+        <div class="text">
+            <center>
+                <p class="e">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                    consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                    enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat.</p>
+            </center>
+        </div>
+        <center>
+            <pre>   Name                                                   Name                                                    Name</pre>
+        </center>
+        <div class="flex">
+            <div class="flex-item"><img src="https://www.w3schools.com/w3images/bandmember.jpg" /></div>
+            <div class="flex-item"><img src="https://www.w3schools.com/w3images/bandmember.jpg" /></div>
+            <div class="flex-item"> <img src="https://www.w3schools.com/w3images/bandmember.jpg" /></div>
+
+        </div>
+    </div>
+    <div class="b">
+
+        <center>
+            <h3>TOUR DATES</h3>
+        </center>
+        <center>
+            <h4>Remember to book your tickets!</h4>
+        </center>
+        <div class="c">
+
+            <p>September <span class="d">Sold out</span></p>
+            <hr>
+            <p>October <span class="d">Sold out</span></p>
+            <hr>
+            <p>November <span class="d">3</span></p>
+            <hr>
+            </span>
+            <div class="flex2">
+                <div class="flex-container2"><img src="https://www.w3schools.com/w3images/newyork.jpg">
+                    <p style="color: black;">
+                        New York<br>
+                        Fri 27 Nov 2016<br>
+                        Praesent tincidunt sed tellus ut rutrum sed vitae justo.<br>
+                        $15 Per person
+                    </p><br>
+                    <button type="button" onclick="msg()"  style="background-color: black;color:white;font-size:larger">Buy Tickets</button>
+                </div>
+                <div class="flex-container2"><img src="https://www.w3schools.com/w3images/paris.jpg">
+                    <p style="color: black;">
+                        Paris<br>
+                        Sat 28 Nov 2016<br>
+                        Praesent tincidunt sed tellus ut rutrum sed vitae justo.<br> 
+                        $15 Per person
+                    </p><br>
+                    <button type="button" onclick="msg()" style="background-color: black; color:white;font-size:larger">Buy Tickets</button>
+                </div>
+                <div class="flex-container2"><img src="https://www.w3schools.com/w3images/sanfran.jpg">
+                    <p style="color: black;">
+                        San Francisco<br>
+                        Sun 29 Nov 2016<br>
+                        Praesent tincidunt sed tellus ut rutrum sed vitae justo.<br> 
+                        $15 Per person</p><br>
+                    <button type="button" onclick="msg()" style="background-color: black;color:white; font-size:larger">Buy Tickets</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <center>
+        <h1>CONTACT</h1>
+    </center>
+    <center>
+        <h2>Fan? Drop a note!</h2>
+    </center>
+    <form>
+        <center>
+            <pre>        Chicago, US                                                 Name:<input type="name"> E-mail:<input type="Email"></pre>
+        </center>
+        <center>
+            <pre>       +00 151515                                                                             Message:<input type="message"></pre>
+        </center>
+        <center>
+            <pre>Email: mail@mail.com                                                                            <button>SEND</button></pre>
+        </center>
+    </form>
+    <img class="img" src="https://www.w3schools.com/w3images/map.jpg">
+</body>
+
+</html>
