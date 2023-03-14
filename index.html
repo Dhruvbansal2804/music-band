@@ -104,9 +104,15 @@
 <body>
     <script>
         function msg(){
-            prompt("Name:");
-            prompt("Amount:");
-            alert("Payed Sucessfully!");
+            var name = prompt("Name:");
+            var amount = prompt("Amount:");
+            console.log("Name:", name, "; Amount:", amount)
+            if (amount > 0) {
+                alert("Paid Sucessfully!");
+            }
+            else {
+                alert("Amount should be greater than 0")
+            }
         }
     </script>
     <nav style="background-color: black; height:30px;">
