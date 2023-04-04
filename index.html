@@ -1,109 +1,64 @@
 <html>
 
 <head>
-    <style>
-        nav ul li {
-            list-style-type: none;
-            display: inline;
-            color: white;
-            align-items: center;
-            margin: 10px;
-            text-decoration: none;
-            text-underline-offset: -100px;
+    <link href="style.css" rel="stylesheet" />
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyDlfxrFpwOTWa0Stw7Mq7_RAo1Biyhtzvw",
+            authDomain: "music-band-8866d.firebaseapp.com",
+            projectId: "music-band-8866d",
+            storageBucket: "music-band-8866d.appspot.com",
+            messagingSenderId: "1064637566540",
+            appId: "1:1064637566540:web:38ec4a9f80d34f0f906ee9",
+            measurementId: "G-V3HZ5F3FJK"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+        const database = getDatabase();
+
+        const shows = ref(database, 'shows/');
+
+        onValue(shows, (snapshot) => {
+            const data = snapshot.val();
+            console.log(data);
+        });
+
+        function writeUserData(userId, name, email, imageUrl) {
+            firebase.database().ref('users/' + userId).set({
+                username: name,
+                email: email,
+                profile_picture: imageUrl
+            });
         }
 
-        .img {
-            width: 100%;
-            margin-left: 0px;
+        document.getElementById("interest-button").onclick = () => {
+            try {
+                const ref = ref(database, 'interests/');
+                ref.push().set({
+                    author: 'alanisawesome',
+                    title: 'The Turing Machine'
+                });
+                console.log("Data inserted successfully")
+            } catch (err) {
+                console.log("Error while writing data:", err)
+            }
+            
         }
+        
+    </script>
 
-        .a {
-            background-color: white;
-        }
-
-        .flex {
-            width: 400px;
-            height: 300px;
-            display: flex;
-        }
-
-        .flex-item {
-            margin-left: 170px;
-            margin-top: 10px;
-            text-align: center;
-        }
-
-        .text {
-            font-size: medium;
-            text-align: center;
-        }
-
-        h1 {
-            font-weight: bold;
-        }
-
-        h2 {
-            font-size: medium;
-            font-style: italic;
-            font-weight: lighter;
-        }
-
-        .b {
-            background-color: black;
-            margin-top: 50px;
-        }
-
-        h3 {
-            font-weight: bold;
-            color: white;
-            font-size: xx-large;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-
-        h4 {
-            font-size: medium;
-            font-style: italic;
-            font-weight: lighter;
-            color: azure;
-        }
-
-        .c {
-            color: white;
-            margin-left: 10px;
-        }
-
-        .d {
-            background-color: red;
-            color: white;
-        }
-
-        .flex2 {
-            width: 400px;
-            height: 600px;
-            display: flex;
-            flex-direction: row;
-            margin-right: 20px;
-        }
-
-        .flex-container2 {
-            margin-left: 55px;
-            margin-top: 30px;
-            text-align: center;
-            background-color: white;
-            height: 500px;
-
-        }
-
-        .e {
-            word-wrap: normal;
-            width: 800px;
-        }
-    </style>
 </head>
 
 <body>
     <script>
-        function msg(){
+        function msg() {
             var name = prompt("Name:");
             var amount = prompt("Amount:");
             console.log("Name:", name, "; Amount:", amount)
@@ -186,24 +141,27 @@
                         Praesent tincidunt sed tellus ut rutrum sed vitae justo.<br>
                         $15 Per person
                     </p><br>
-                    <button type="button" onclick="msg()"  style="background-color: black;color:white;font-size:larger">Buy Tickets</button>
+                    <button type="button" onclick="msg()"
+                        style="background-color: black;color:white;font-size:larger">Buy Tickets</button>
                 </div>
                 <div class="flex-container2"><img src="https://www.w3schools.com/w3images/paris.jpg">
                     <p style="color: black;">
                         Paris<br>
                         Sat 28 Nov 2016<br>
-                        Praesent tincidunt sed tellus ut rutrum sed vitae justo.<br> 
+                        Praesent tincidunt sed tellus ut rutrum sed vitae justo.<br>
                         $15 Per person
                     </p><br>
-                    <button type="button" onclick="msg()" style="background-color: black; color:white;font-size:larger">Buy Tickets</button>
+                    <button type="button" onclick="msg()"
+                        style="background-color: black; color:white;font-size:larger">Buy Tickets</button>
                 </div>
                 <div class="flex-container2"><img src="https://www.w3schools.com/w3images/sanfran.jpg">
                     <p style="color: black;">
                         San Francisco<br>
                         Sun 29 Nov 2016<br>
-                        Praesent tincidunt sed tellus ut rutrum sed vitae justo.<br> 
+                        Praesent tincidunt sed tellus ut rutrum sed vitae justo.<br>
                         $15 Per person</p><br>
-                    <button type="button" onclick="msg()" style="background-color: black;color:white; font-size:larger">Buy Tickets</button>
+                    <button type="button" onclick="msg()"
+                        style="background-color: black;color:white; font-size:larger">Buy Tickets</button>
                 </div>
             </div>
         </div>
@@ -225,7 +183,7 @@
             <pre>       +00 151515                                                                             Message:<input type="message"></pre>
         </center>
         <center>
-            <pre>Email: mail@mail.com                                                                            <button>SEND</button></pre>
+            <pre>Email: mail@mail.com                                                                            <button type="button" id="interest-button">SEND</button></pre>
         </center>
     </form>
     <img class="img" src="https://www.w3schools.com/w3images/map.jpg">
