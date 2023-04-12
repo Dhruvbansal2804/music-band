@@ -54,7 +54,17 @@
 
         onValue(shows, (snapshot) => {
             const data = snapshot.val();
-            document.getElementById("data-paragraph").textContent = JSON.stringify(data);
+            document.getElementById("show-1-artist").textContent = JSON.stringify(data["show-001"]["band"]);
+            document.getElementById("show-1-date").textContent = JSON.stringify(data["show-001"]["date"]);
+            document.getElementById("show-1-venue").textContent = JSON.stringify(data["show-001"]["venue"]);
+
+            document.getElementById("show-2-artist").textContent = JSON.stringify(data["show-002"]["band"]);
+            document.getElementById("show-2-date").textContent = JSON.stringify(data["show-002"]["date"]);
+            document.getElementById("show-2-venue").textContent = JSON.stringify(data["show-002"]["venue"]);
+
+            document.getElementById("show-3-artist").textContent = JSON.stringify(data["show-003"]["band"]);
+            document.getElementById("show-3-date").textContent = JSON.stringify(data["show-003"]["date"]);
+            document.getElementById("show-3-venue").textContent = JSON.stringify(data["show-003"]["venue"]);
         });
 
     </script>
@@ -62,7 +72,7 @@
 </head>
 
 <body>
-    <script>
+    <!-- <script>
         function msg() {
             var name = prompt("Name:");
             var amount = prompt("Amount:");
@@ -74,7 +84,7 @@
                 alert("Amount should be greater than 0")
             }
         }
-    </script>
+    </script> -->
     <nav style="background-color: black; height:30px;">
         <ul>
             <li><a href="https://www.w3schools.com/w3css/tryw3css_templates_band.htm#" style="color: white;">HOME</a>
@@ -141,34 +151,33 @@
             </span>
             <div class="flex2">
                 <div class="flex-container2"><img src="https://www.w3schools.com/w3images/newyork.jpg">
-                    <p style="color: black;">
-                        New York<br>
-                        Fri 27 Nov 2016<br>
-                        Praesent tincidunt sed tellus ut rutrum sed vitae justo.<br>
-                        $15 Per person
-                    </p><br>
+                    <div style="color: #000000">
+                        <h1 id="show-1-artist"></h1>
+                        <h2 id="show-1-venue"></h2>
+                        <p id="show-1-date"></p>
+                    </div>
                     <button type="button" onclick="msg()"
                         style="background-color: black;color:white;font-size:larger">Buy Tickets</button>
                 </div>
-                <div class="flex-container2"><img src="https://www.w3schools.com/w3images/paris.jpg">
-                    <p style="color: black;">
-                        Paris<br>
-                        Sat 28 Nov 2016<br>
-                        Praesent tincidunt sed tellus ut rutrum sed vitae justo.<br>
-                        $15 Per person
-                    </p><br>
+                <div class="flex-container2"><img src="https://www.w3schools.com/w3images/newyork.jpg">
+                    <div style="color: #000000">
+                        <h1 id="show-2-artist"></h1>
+                        <h2 id="show-2-venue"></h2>
+                        <p id="show-2-date"></p>
+                    </div>
                     <button type="button" onclick="msg()"
-                        style="background-color: black; color:white;font-size:larger">Buy Tickets</button>
+                        style="background-color: black;color:white;font-size:larger">Buy Tickets</button>
                 </div>
-                <div class="flex-container2"><img src="https://www.w3schools.com/w3images/sanfran.jpg">
-                    <p style="color: black;">
-                        San Francisco<br>
-                        Sun 29 Nov 2016<br>
-                        Praesent tincidunt sed tellus ut rutrum sed vitae justo.<br>
-                        $15 Per person</p><br>
+                <div class="flex-container2"><img src="https://www.w3schools.com/w3images/newyork.jpg">
+                    <div style="color: #000000">
+                        <h1 id="show-3-artist"></h1>
+                        <h2 id="show-3-venue"></h2>
+                        <p id="show-3-date"></p>
+                    </div>
                     <button type="button" onclick="msg()"
-                        style="background-color: black;color:white; font-size:larger">Buy Tickets</button>
+                        style="background-color: black;color:white;font-size:larger">Buy Tickets</button>
                 </div>
+                
             </div>
         </div>
     </div>
