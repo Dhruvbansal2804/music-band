@@ -5,7 +5,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
+
         const firebaseConfig = {
             apiKey: "AIzaSyDlfxrFpwOTWa0Stw7Mq7_RAo1Biyhtzvw",
             authDomain: "music-band-8866d.firebaseapp.com",
@@ -16,35 +16,18 @@
             measurementId: "G-V3HZ5F3FJK"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+        import { getDatabase, ref, onValue, push, set } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
         const database = getDatabase();
-
-        const shows = ref(database, 'shows/');
-
-        onValue(shows, (snapshot) => {
-            const data = snapshot.val();
-            console.log(data);
-        });
-
-        function writeUserData(userId, name, email, imageUrl) {
-            firebase.database().ref('users/' + userId).set({
-                username: name,
-                email: email,
-                profile_picture: imageUrl
-            });
-        }
-
+        
         document.getElementById("interest-button").onclick = () => {
             try {
-                const ref = ref(database, 'interests/');
-                ref.push().set({
-                    author: 'alanisawesome',
-                    title: 'The Turing Machine'
-                });
+                const interests = ref(database, "interests");
+                push(ref(database, "interests"), {
+                    name: document.getElementById("name").value,
+                    email: document.getElementById("email").value,
+                    message: document.getElementById("message").value
+                })
                 console.log("Data inserted successfully")
             } catch (err) {
                 console.log("Error while writing data:", err)
@@ -52,6 +35,7 @@
 
         }
 
+        const shows = ref(database, 'shows/');
         onValue(shows, (snapshot) => {
             const data = snapshot.val();
             document.getElementById("show-1-artist").textContent = JSON.stringify(data["show-001"]["band"]);
@@ -192,10 +176,10 @@
     </center>
     <form>
         <center>
-            <pre>        Chicago, US                                                 Name:<input type="name"> E-mail:<input type="Email"></pre>
+            <pre>        Chicago, US                                                 Name:<input id="name" type="name"> E-mail:<input id="email" type="Email"></pre>
         </center>
         <center>
-            <pre>       +00 151515                                                                             Message:<input type="message"></pre>
+            <pre>       +00 151515                                                                             Message:<input type="message" id="message"></pre>
         </center>
         <center>
             <pre>Email: mail@mail.com                                                                            <button type="button" id="interest-button">SEND</button></pre>
