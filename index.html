@@ -49,9 +49,14 @@
             } catch (err) {
                 console.log("Error while writing data:", err)
             }
-            
+
         }
-        
+
+        onValue(shows, (snapshot) => {
+            const data = snapshot.val();
+            document.getElementById("data-paragraph").textContent = JSON.stringify(data);
+        });
+
     </script>
 
 </head>
@@ -95,6 +100,7 @@
         </center>
         <div class="text">
             <center>
+                <p id="data-paragraph"></p>
                 <p class="e">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
