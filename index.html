@@ -5,6 +5,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+        <!--  -->
 
         const firebaseConfig = {
             apiKey: "AIzaSyDlfxrFpwOTWa0Stw7Mq7_RAo1Biyhtzvw",
@@ -22,7 +23,6 @@
         
         document.getElementById("interest-button").onclick = () => {
             try {
-                const interests = ref(database, "interests");
                 push(ref(database, "interests"), {
                     name: document.getElementById("name").value,
                     email: document.getElementById("email").value,
